@@ -25,6 +25,12 @@ public class ClienteController {
         return ResponseEntity.status(HttpStatus.CREATED).body(novoCliente);
     }
 
+    @PostMapping("/deletar/{id}")
+    public ResponseEntity<String> deletarCliente(@PathVariable Long id){
+        clienteService.removerCliente(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Cliente Removiso com sucesso");
+    }
+
     @GetMapping("/listar")
     public ResponseEntity<List<Cliente>> listarTodos() {
         return ResponseEntity.ok(clienteService.listarClientes());
