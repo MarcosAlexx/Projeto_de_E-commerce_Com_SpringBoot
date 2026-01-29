@@ -20,18 +20,6 @@ public class ClienteService {
         return clienteRepository.save(cliente);
     }
 
-    public List<Cliente> listarClientes() {
-        return clienteRepository.findAll();
-    }
-
-    public Optional<Cliente> buscarClientePorId(long id) {
-        return clienteRepository.findById(id);
-    }
-
-    public Optional<Cliente> buscarPorCpf(String cpf) {
-        return clienteRepository.findByCpf(cpf);
-    }
-
     public Cliente removerCliente(Long id) {
         Optional<Cliente> clienteOpt = clienteRepository.findById(id);
 
@@ -44,4 +32,17 @@ public class ClienteService {
 
         return cliente;
     }
+
+    public List<Cliente> listarClientes() {
+        return clienteRepository.findAll();
+    }
+
+    public Optional<Cliente> buscarClientePorId(long id) {
+        return clienteRepository.findById(id);
+    }
+
+    public Optional<Cliente> buscarPorCpf(String cpf) {
+        return clienteRepository.findByCpf(cpf);
+    }
+
 }
